@@ -21,7 +21,7 @@ public class QuotationScheduler {
     QuotationService quotationService;
 
     @Transactional
-    @Scheduled(every = "3s", identity="task-job")
+    @Scheduled(every = "30s", identity="task-job")
     void schedule() throws IOException, InterruptedException {
         LOG.info("-- Executando scheduler --");
         quotationService.getCurrencyPrice();
