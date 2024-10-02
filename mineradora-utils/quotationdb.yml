@@ -1,0 +1,14 @@
+
+version: '3'
+services:
+  postgres:
+    image: postgres:16.4
+    hostname: postgres
+    container_name: quotationdb
+    ports:
+      - 5432:5432/tcp
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: quotationdb
+    restart: unless-stopped
