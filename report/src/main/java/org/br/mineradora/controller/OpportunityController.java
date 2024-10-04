@@ -7,23 +7,24 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import org.br.mineradora.dto.OpportunityDTO;
 import org.br.mineradora.service.OpportunityService;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 
 import java.util.List;
 
 @Path("/api/opportunity")
-//@Authenticated
+@Authenticated
 public class OpportunityController {
 
-//    @Inject
-//    JsonWebToken token;
+    @Inject
+    JsonWebToken token;
 
     @Inject
     OpportunityService opportunityService;
 
     @GET
     @Path("/data")
-//    @RolesAllowed({"user","manager"})
+    @RolesAllowed({"user","manager"})
     public List<OpportunityDTO> generateReport(){
 
         return opportunityService.generateOpportunityData();
